@@ -1758,8 +1758,8 @@ body > [data-popper-placement] {
   }
 
   .logo {
-    width: 40px;
-    height: 40px;
+    width: 90px;
+    height: 90px;
     color: $dark-text-color;
   }
 }
@@ -2791,7 +2791,7 @@ $ui-header-logo-wordmark-width: 99px;
     container: header-logo / inline-size;
 
     .logo {
-      height: $ui-header-height - 30px;
+      height: $ui-header-height - 5px;
       width: auto;
     }
 
@@ -2801,11 +2801,11 @@ $ui-header-logo-wordmark-width: 99px;
 
     @container header-logo (min-width: #{$ui-header-logo-wordmark-width}) {
       .logo--wordmark {
-        display: block;
+        display: none;
       }
 
       .logo--icon {
-        display: none;
+        display: block;
       }
     }
   }
@@ -3537,7 +3537,7 @@ $ui-header-logo-wordmark-width: 99px;
   }
 
   .logo {
-    height: 30px;
+    height: 80px;
     width: auto;
   }
 
@@ -10628,8 +10628,8 @@ noscript {
   gap: 8px;
 
   .logo {
-    width: 16px;
-    height: 16px;
+    width: 32px;
+    height: 32px;
     color: $darker-text-color;
   }
 
@@ -11151,4 +11151,10 @@ noscript {
       color: $secondary-text-color;
     }
   }
+}
+
+.logo-container .logo--wordmark {
+	width: 200px !important;
+	height: auto !important;
+
 }
