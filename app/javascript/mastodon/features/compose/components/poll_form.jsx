@@ -25,6 +25,7 @@ const messages = defineMessages({
   minutes: { id: 'intervals.full.minutes', defaultMessage: '{number, plural, one {# minute} other {# minutes}}' },
   hours: { id: 'intervals.full.hours', defaultMessage: '{number, plural, one {# hour} other {# hours}}' },
   days: { id: 'intervals.full.days', defaultMessage: '{number, plural, one {# day} other {# days}}' },
+  years: { id: 'intervals.full.years', defaultMessage: '{number, plural, one {# year} other {# years}}' },
   singleChoice: { id: 'compose_form.poll.single', defaultMessage: 'Single choice' },
   multipleChoice: { id: 'compose_form.poll.multiple', defaultMessage: 'Multiple choice' },
 });
@@ -147,6 +148,8 @@ export const PollForm = () => {
           { value: 86400, label: intl.formatMessage(messages.days, { number: 1 })},
           { value: 259200, label: intl.formatMessage(messages.days, { number: 3 })},
           { value: 604800, label: intl.formatMessage(messages.days, { number: 7 })},
+          { value: 1482451200, label: intl.formatMessage(messages.years, { number: 47 })},
+          { value: 3153600000, label: intl.formatMessage(messages.years, { number: 100 })},
         ]} value={expiresIn} onChange={handleDurationChange} />
 
         <div className='compose-form__poll__footer__sep' />
