@@ -8,7 +8,7 @@ import InsertChartIcon from '@/material-icons/400-24px/insert_chart.svg?react';
 import PersonAddIcon from '@/material-icons/400-24px/person_add.svg?react';
 import RepeatIcon from '@/material-icons/400-24px/repeat.svg?react';
 import ReplyAllIcon from '@/material-icons/400-24px/reply_all.svg?react';
-import StarIcon from '@/material-icons/400-24px/star.svg?react';
+import HeartIcon from '@/material-icons/400-24px/favorite.svg?react';
 import { setNotificationsFilter } from 'mastodon/actions/notification_groups';
 import { Icon } from 'mastodon/components/icon';
 import {
@@ -89,7 +89,7 @@ export const FilterBar: React.FC = () => {
           key='favourite'
           title={intl.formatMessage(tooltips.favourites)}
         >
-          <Icon id='star' icon={StarIcon} />
+          <Icon id='star' icon={HeartIcon} />
         </BarButton>
         <BarButton
           selectedFilter={selectedFilter}

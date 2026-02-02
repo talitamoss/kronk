@@ -25,3 +25,5 @@
 @use 'mastodon/rtl';
 @use 'mastodon/accessibility';
 @use 'mastodon/rich_text';
+@use 'mastodon/status_replies';
+@use 'mastodon/pwa_install_prompt';

@@ -11651,3 +11651,22 @@ noscript {
     }
   }
 }
+
+
+
+/* Kronk logo in column header - hide Home text */
+.column-header__title:has(.kronk-header-logo) {
+  font-size: 0;
+  line-height: 0;
+}
+
+.column-header__title .kronk-header-logo {
+  height: 65px !important;
+  margin: -20px 0 -20px -20px;
+  width: auto !important;
+}
+
+/* Reduce left padding when kronk logo is present */
+.column-header__title:has(.kronk-header-logo) {
+  padding-left: 8px;
+}

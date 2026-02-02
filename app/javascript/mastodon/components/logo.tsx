@@ -1,19 +1,17 @@
 import logo from '@/images/logo.svg';
+import kronkWordmark from '@/images/kronk-wordmark-small.png';
 
 export const WordmarkLogo: React.FC = () => (
-  <svg viewBox='0 0 261 66' className='logo logo--wordmark' role='img'>
-    <title>Mastodon</title>
-    <use xlinkHref='#logo-symbol-wordmark' />
-  </svg>
+  <img src={kronkWordmark} alt='Kronk' className='logo logo--wordmark' style={{ height: '40px', width: 'auto' }} />
 );
 
 export const IconLogo: React.FC = () => (
   <svg viewBox='0 0 79 79' className='logo logo--icon' role='img'>
-    <title>Mastodon</title>
+    <title>Kronk</title>
     <use xlinkHref='#logo-symbol-icon' />
   </svg>
 );
 
 export const SymbolLogo: React.FC = () => (
-  <img src={logo} alt='Mastodon' className='logo logo--icon' />
+  <img src={kronkWordmark} alt='Kronk' className='logo logo--wordmark kronk-header-logo' style={{ height: '28px', width: 'auto' }} />
 );

@@ -11,7 +11,7 @@ module BrandingHelper
   end
 
   def _logo_as_symbol_wordmark
-    content_tag(:svg, tag.use(href: '#logo-symbol-wordmark'), viewBox: '0 0 261 66', class: 'logo logo--wordmark')
+    image_tag(frontend_asset_path('images/kronk-wordmark.png'), alt: 'Kronk', class: 'logo logo--wordmark', style: 'height: 50px; width: auto;')
   end
 
   def _logo_as_symbol_icon
@@ -19,6 +19,6 @@ module BrandingHelper
   end
 
   def render_logo
-    image_tag(frontend_asset_path('images/logo.svg'), alt: 'Mastodon', class: 'logo logo--icon')
+    image_tag(frontend_asset_path('images/logo.svg'), alt: 'Kronk', class: 'logo logo--icon')
   end
 end

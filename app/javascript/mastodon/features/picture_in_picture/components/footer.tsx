@@ -7,8 +7,8 @@ import { useHistory } from 'react-router-dom';
 import OpenInNewIcon from '@/material-icons/400-24px/open_in_new.svg?react';
 import ReplyIcon from '@/material-icons/400-24px/reply.svg?react';
 import ReplyAllIcon from '@/material-icons/400-24px/reply_all.svg?react';
-import StarIcon from '@/material-icons/400-24px/star-fill.svg?react';
-import StarBorderIcon from '@/material-icons/400-24px/star.svg?react';
+import HeartIcon from '@/material-icons/400-24px/favorite-fill.svg?react';
+import HeartBorderIcon from '@/material-icons/400-24px/favorite.svg?react';
 import { replyCompose } from 'mastodon/actions/compose';
 import { toggleFavourite } from 'mastodon/actions/interactions';
 import { openModal } from 'mastodon/actions/modal';
@@ -176,7 +176,7 @@ export const Footer: React.FC<{
         active={status.get('favourited') as boolean}
         title={favouriteTitle}
         icon='star'
-        iconComponent={status.get('favourited') ? StarIcon : StarBorderIcon}
+        iconComponent={status.get('favourited') ? HeartIcon : HeartBorderIcon}
         onClick={handleFavouriteClick}
         counter={status.get('favourites_count') as number}
       />

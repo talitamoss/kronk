@@ -34,7 +34,9 @@ class TextFormatter
     return add_quote_fallback('').html_safe if text.blank? # rubocop:disable Rails/OutputSafety
 
     html = rewrite do |entity|
-      if entity[:url]
+      if entity[:markdown_link]
+        link_to_markdown_link(entity)
+      elsif entity[:url]
         link_to_url(entity)
       elsif entity[:hashtag]
         link_to_hashtag(entity)
@@ -101,6 +103,22 @@ class TextFormatter
 
   def link_to_url(entity)
     TextFormatter.shortened_link(entity[:url], rel_me: with_rel_me?)
+  end
+
+  def link_to_markdown_link(entity)
+    link_data = entity[:markdown_link]
+    url = link_data[:url]
+    link_text = link_data[:text]
+
+    begin
+      url = Addressable::URI.parse(url).to_s
+    rescue Addressable::URI::InvalidURIError, IDN::Idna::IdnaError
+      return h("[#{link_text}](#{url})")
+    end
+
+    <<~HTML.squish
+      <a href="#{h(url)}" target="_blank" rel="nofollow noopener" class="markdown-link">#{h(link_text)}</a>
+    HTML
   end
 
   def link_to_hashtag(entity)

@@ -2,7 +2,7 @@ import { FormattedMessage } from 'react-intl';
 
 import { Link } from 'react-router-dom';
 
-import StarIcon from '@/material-icons/400-24px/star-fill.svg?react';
+import HeartIcon from '@/material-icons/400-24px/favorite-fill.svg?react';
 import type { NotificationGroupFavourite } from 'mastodon/models/notification_group';
 import { useAppSelector } from 'mastodon/store';
 
@@ -79,7 +79,7 @@ export const NotificationFavourite: React.FC<{
   return (
     <NotificationGroupWithStatus
       type='favourite'
-      icon={StarIcon}
+      icon={HeartIcon}
       iconId='star'
       accountIds={notification.sampleAccountIds}
       statusId={notification.statusId}

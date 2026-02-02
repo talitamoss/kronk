@@ -32,6 +32,7 @@ import BundleColumnError from './components/bundle_column_error';
 import { NavigationBar } from './components/navigation_bar';
 import { UploadArea } from './components/upload_area';
 import { HashtagMenuController } from './components/hashtag_menu_controller';
+import PwaInstallPrompt from '../../components/pwa_install_prompt';
 import ColumnsAreaContainer from './containers/columns_area_container';
 import LoadingBarContainer from './containers/loading_bar_container';
 import ModalContainer from './containers/modal_container';
@@ -590,6 +591,7 @@ class UI extends PureComponent {
           <AlertsController />
           {!disableHoverCards && <HoverCardController />}
           <HashtagMenuController />
+          <PwaInstallPrompt />
           <LoadingBarContainer className='loading-bar' />
           <ModalContainer />
           <UploadArea active={draggingOver} onClose={this.closeUploadModal} />

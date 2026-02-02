@@ -45,7 +45,7 @@ class Status < ApplicationRecord
   include Status::Visibility
   include Status::InteractionPolicyConcern
 
-  MEDIA_ATTACHMENTS_LIMIT = 10
+  MEDIA_ATTACHMENTS_LIMIT = 30
 
   rate_limit by: :account, family: :statuses
 

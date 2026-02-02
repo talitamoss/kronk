@@ -15,6 +15,7 @@ import AlternateEmailIcon from '@/material-icons/400-24px/alternate_email.svg?re
 import BookmarksActiveIcon from '@/material-icons/400-24px/bookmarks-fill.svg?react';
 import BookmarksIcon from '@/material-icons/400-24px/bookmarks.svg?react';
 import HomeActiveIcon from '@/material-icons/400-24px/home-fill.svg?react';
+import kronkWordmark from '@/images/kronk-wordmark-small.png';
 import HomeIcon from '@/material-icons/400-24px/home.svg?react';
 import InfoIcon from '@/material-icons/400-24px/info.svg?react';
 import NotificationsActiveIcon from '@/material-icons/400-24px/notifications-fill.svg?react';
@@ -23,8 +24,8 @@ import PersonAddActiveIcon from '@/material-icons/400-24px/person_add-fill.svg?r
 import PersonAddIcon from '@/material-icons/400-24px/person_add.svg?react';
 import PublicIcon from '@/material-icons/400-24px/public.svg?react';
 import SettingsIcon from '@/material-icons/400-24px/settings.svg?react';
-import StarActiveIcon from '@/material-icons/400-24px/star-fill.svg?react';
-import StarIcon from '@/material-icons/400-24px/star.svg?react';
+import HeartActiveIcon from '@/material-icons/400-24px/favorite-fill.svg?react';
+import HeartIcon from '@/material-icons/400-24px/favorite.svg?react';
 import TrendingUpIcon from '@/material-icons/400-24px/trending_up.svg?react';
 import { fetchFollowRequests } from 'mastodon/actions/accounts';
 import { openNavigation, closeNavigation } from 'mastodon/actions/navigation';
@@ -223,8 +224,9 @@ export const NavigationPanel: React.FC<{ multiColumn?: boolean }> = ({
     <div className='navigation-panel'>
       <div className='navigation-panel__logo'>
         <Link to='/' className='column-link column-link--logo'>
-          <WordmarkLogo />
+          <img src={kronkWordmark} alt="Kronk" style={{ height: "36px", width: "auto" }} />
         </Link>
+        
       </div>
 
       {showSearch && <Search singleColumn />}
@@ -248,12 +250,14 @@ export const NavigationPanel: React.FC<{ multiColumn?: boolean }> = ({
             )}
             <ColumnLink
               transparent
-              to='/home'
-              icon='home'
+              to="/home"
+              icon="home"
               iconComponent={HomeIcon}
               activeIconComponent={HomeActiveIcon}
               text={intl.formatMessage(messages.home)}
             />
+              
+            
           </>
         )}
 
@@ -304,8 +308,8 @@ export const NavigationPanel: React.FC<{ multiColumn?: boolean }> = ({
               transparent
               to='/favourites'
               icon='star'
-              iconComponent={StarIcon}
-              activeIconComponent={StarActiveIcon}
+              iconComponent={HeartIcon}
+              activeIconComponent={HeartActiveIcon}
               text={intl.formatMessage(messages.favourites)}
             />
             <ColumnLink

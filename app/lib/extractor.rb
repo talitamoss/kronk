@@ -3,6 +3,9 @@
 module Extractor
   MAX_DOMAIN_LENGTH = 253
 
+  # Markdown link pattern: [text](url)
+  MARKDOWN_LINK_RE = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/
+
   extend Twitter::TwitterText::Extractor
 
   module_function
@@ -11,13 +14,36 @@ module Extractor
     entities = extract_urls_with_indices(text, options) +
                extract_hashtags_with_indices(text, check_url_overlap: false) +
                extract_mentions_or_lists_with_indices(text) +
-               extract_extra_uris_with_indices(text)
+               extract_extra_uris_with_indices(text) +
+               extract_markdown_links_with_indices(text)
 
     return [] if entities.empty?
 
     entities = remove_overlapping_entities(entities)
     entities.each(&block) if block
     entities
+  end
+
+  def extract_markdown_links_with_indices(text)
+    return [] unless text&.include?('](')
+
+    possible_entries = []
+
+    text.scan(MARKDOWN_LINK_RE) do |link_text, url|
+      match_data = $LAST_MATCH_INFO
+      start_position = match_data.char_begin(0)
+      end_position = match_data.char_end(0)
+
+      possible_entries << {
+        markdown_link: {
+          text: link_text,
+          url: url,
+        },
+        indices: [start_position, end_position],
+      }
+    end
+
+    possible_entries
   end
 
   def extract_mentions_or_lists_with_indices(text)

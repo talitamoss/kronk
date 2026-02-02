@@ -55,6 +55,7 @@ class Auth::ConfirmationsController < Devise::ConfirmationsController
     # Devise::ConfirmationsController#show looks up and confirms in one
     # step.
     confirmation_token = params[:confirmation_token]
+    Rails.logger.info "SET_CONFIRMATION: token=#{confirmation_token}"
     return if confirmation_token.nil?
 
     @confirmation_user = User.find_first_by_auth_conditions(confirmation_token: confirmation_token)
@@ -65,7 +66,11 @@ class Auth::ConfirmationsController < Devise::ConfirmationsController
   end
 
   def redirect_confirmed_user
-    redirect_to(current_user.approved? ? root_path : edit_user_registration_path)
+    # If there is a confirmation user who is not yet confirmed, let the confirmation proceed
+    Rails.logger.info "REDIRECT_CHECK: confirmation_user=#{@confirmation_user.inspect}, confirmed=#{@confirmation_user&.confirmed?}"
+    return if @confirmation_user && !@confirmation_user.confirmed?
+    
+    redirect_to((@confirmation_user || current_user).created_by_application ? "/app-redirect.html" : (current_user.approved? ? root_path : edit_user_registration_path))
   end
 
   def signed_in_confirmed_user?
@@ -85,8 +90,9 @@ class Auth::ConfirmationsController < Devise::ConfirmationsController
   end
 
   def after_confirmation_path_for(_resource_name, user)
-    if user.created_by_application && redirect_to_app?
-      user.created_by_application.confirmation_redirect_uri
+    Rails.logger.info "CONFIRMATION: user.created_by_application=#{user.created_by_application.inspect}"
+    if user.created_by_application
+      "/app-redirect.html"
     elsif user_signed_in?
       web_url('start')
     else

@@ -1,0 +1,223 @@
+@use "variables" as *;
+@use "functions" as *;
+@use "mixins" as *;
+
+// Status Replies - Simplified inline replies
+.status-replies {
+  padding: 0 14px 10px;
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 8px 0;
+    color: $highlight-text-color;
+    font-size: 13px;
+    cursor: pointer;
+    transition: color 0.15s;
+
+    &:hover {
+      color: lighten($highlight-text-color, 8%);
+    }
+
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__content {
+    margin-top: 4px;
+  }
+
+  &__loading {
+    padding: 12px 0;
+    color: $darker-text-color;
+    font-size: 13px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px 0;
+  }
+
+  &__view-all {
+    display: block;
+    padding: 8px 12px;
+    margin-top: 8px;
+    text-align: center;
+    background: rgba($highlight-text-color, 0.1);
+    color: $highlight-text-color;
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.15s;
+
+    &:hover {
+      background: rgba($highlight-text-color, 0.15);
+    }
+  }
+
+  &__item {
+    &__main {
+      display: flex;
+      gap: 10px;
+    }
+
+    &__avatar {
+      flex-shrink: 0;
+
+      img {
+        border-radius: 4px;
+      }
+    }
+
+    &__content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    &__header {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      font-size: 13px;
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+
+    &__name {
+      font-weight: 600;
+      color: $primary-text-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &__acct {
+      color: $darker-text-color;
+    }
+
+    &__dot {
+      color: $darker-text-color;
+    }
+
+    &__time {
+      color: $darker-text-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &__text {
+      font-size: 14px;
+      line-height: 1.4;
+      color: $primary-text-color;
+
+      p {
+        margin: 0;
+      }
+
+      a {
+        color: $highlight-text-color;
+      }
+    }
+
+    &__nested {
+      margin-top: 10px;
+      margin-left: 38px;
+      padding-left: 12px;
+      border-left: 2px solid var(--background-border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    // Depth styling
+    &--depth-1,
+    &--depth-2 {
+      .status-replies__item__text {
+        font-size: 13px;
+      }
+
+      .status-replies__item__header {
+        font-size: 12px;
+      }
+
+      .status-replies__item__nested {
+        margin-left: 34px;
+      }
+    }
+  }
+
+  &__quick-reply {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    margin-top: 8px;
+    border-top: 1px solid var(--background-border-color);
+
+    &__avatar {
+      flex-shrink: 0;
+
+      img {
+        border-radius: 4px;
+      }
+    }
+
+    &__input-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--background-color);
+      border: 1px solid var(--background-border-color);
+      border-radius: 18px;
+      padding: 6px 6px 6px 14px;
+      transition: border-color 0.15s;
+
+      &:focus-within {
+        border-color: $highlight-text-color;
+      }
+
+      input {
+        flex: 1;
+        background: none;
+        border: none;
+        outline: none;
+        color: $primary-text-color;
+        font-size: 14px;
+        padding: 0;
+        min-width: 0;
+
+        &::placeholder {
+          color: $darker-text-color;
+        }
+
+        &:disabled {
+          opacity: 0.6;
+        }
+      }
+
+      .icon-button {
+        flex-shrink: 0;
+        color: $highlight-text-color;
+        padding: 4px;
+
+        &:disabled {
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+}

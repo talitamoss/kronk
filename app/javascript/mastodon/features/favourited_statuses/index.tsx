@@ -4,7 +4,7 @@ import { defineMessages, useIntl, FormattedMessage } from 'react-intl';
 
 import { Helmet } from 'react-helmet';
 
-import StarIcon from '@/material-icons/400-24px/star-fill.svg?react';
+import HeartIcon from '@/material-icons/400-24px/favorite-fill.svg?react';
 import { addColumn, removeColumn, moveColumn } from 'mastodon/actions/columns';
 import {
   fetchFavouritedStatuses,
@@ -83,7 +83,7 @@ const Favourites: React.FC<{ columnId: string; multiColumn: boolean }> = ({
     >
       <ColumnHeader
         icon='star'
-        iconComponent={StarIcon}
+        iconComponent={HeartIcon}
         title={intl.formatMessage(messages.heading)}
         onPin={handlePin}
         onMove={handleMove}

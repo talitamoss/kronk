@@ -36,6 +36,7 @@ import StatusContent from './status_content';
 import { StatusThreadLabel } from './status_thread_label';
 import { VisibilityIcon } from './visibility_icon';
 import { IconButton } from './icon_button';
+import StatusReplies from './status_replies';
 
 const domParser = new DOMParser();
 
@@ -128,6 +129,7 @@ class Status extends ImmutablePureComponent {
     avatarSize: PropTypes.number,
     deployPictureInPicture: PropTypes.func,
     unfocusable: PropTypes.bool,
+    showInlineReplies: PropTypes.bool,
     pictureInPicture: ImmutablePropTypes.contains({
       inUse: PropTypes.bool,
       available: PropTypes.bool,
@@ -381,7 +383,7 @@ class Status extends ImmutablePureComponent {
   };
 
   render () {
-    const { intl, hidden, featured, unfocusable, unread, showThread, isQuotedPost = false, scrollKey, pictureInPicture, previousId, nextInReplyToId, rootId, skipPrepend, avatarSize = 46, children } = this.props;
+    const { intl, hidden, featured, unfocusable, unread, showThread, isQuotedPost = false, scrollKey, pictureInPicture, previousId, nextInReplyToId, rootId, skipPrepend, avatarSize = 46, children, showInlineReplies, contextType } = this.props;
 
     let { status, account, ...other } = this.props;
 
@@ -620,9 +622,19 @@ class Status extends ImmutablePureComponent {
               </>
             )}
 
-            {!isQuotedPost &&
-              <StatusActionBar scrollKey={scrollKey} status={status} account={account}  {...other} />
-            }
+            {!isQuotedPost && (
+              <>
+                <StatusActionBar scrollKey={scrollKey} status={status} account={account}  {...other} />
+                {(showInlineReplies || contextType === 'home') && (
+                  <StatusReplies
+                    statusId={status.get('id')}
+                    statusAcct={status.getIn(['account', 'acct'])}
+                    statusVisibility={status.get('visibility')}
+                    repliesCount={status.get('replies_count')}
+                  />
+                )}
+              </>
+            )}
           </div>
         </div>
       </Hotkeys>
