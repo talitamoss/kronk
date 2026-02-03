@@ -18,7 +18,7 @@ import { getStatusList } from 'mastodon/selectors';
 import { useAppDispatch, useAppSelector } from 'mastodon/store';
 
 const messages = defineMessages({
-  heading: { id: 'column.favourites', defaultMessage: 'Favorites' },
+  heading: { id: 'column.favourites', defaultMessage: 'Froths' },
 });
 
 const Favourites: React.FC<{ columnId: string; multiColumn: boolean }> = ({
@@ -71,7 +71,7 @@ const Favourites: React.FC<{ columnId: string; multiColumn: boolean }> = ({
   const emptyMessage = (
     <FormattedMessage
       id='empty_column.favourited_statuses'
-      defaultMessage="You don't have any favorite posts yet. When you favorite one, it will show up here."
+      defaultMessage="You don't have any frothed posts yet. When you froth one, it will show up here."
     />
   );
 

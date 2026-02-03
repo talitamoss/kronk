@@ -354,7 +354,7 @@ export const DetailedStatus: React.FC<{
       </span>
       <FormattedMessage
         id='status.favourites'
-        defaultMessage='{count, plural, one {favorite} other {favorites}}'
+        defaultMessage='{count, plural, one {froth} other {froths}}'
         values={{ count: status.get('favourites_count') }}
       />
     </Link>

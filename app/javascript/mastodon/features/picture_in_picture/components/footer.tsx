@@ -4,11 +4,11 @@ import { defineMessages, useIntl } from 'react-intl';
 
 import { useHistory } from 'react-router-dom';
 
+import HeartIcon from '@/material-icons/400-24px/favorite-fill.svg?react';
+import HeartBorderIcon from '@/material-icons/400-24px/favorite.svg?react';
 import OpenInNewIcon from '@/material-icons/400-24px/open_in_new.svg?react';
 import ReplyIcon from '@/material-icons/400-24px/reply.svg?react';
 import ReplyAllIcon from '@/material-icons/400-24px/reply_all.svg?react';
-import HeartIcon from '@/material-icons/400-24px/favorite-fill.svg?react';
-import HeartBorderIcon from '@/material-icons/400-24px/favorite.svg?react';
 import { replyCompose } from 'mastodon/actions/compose';
 import { toggleFavourite } from 'mastodon/actions/interactions';
 import { openModal } from 'mastodon/actions/modal';
@@ -37,10 +37,10 @@ const messages = defineMessages({
     id: 'status.cannot_reblog',
     defaultMessage: 'This post cannot be boosted',
   },
-  favourite: { id: 'status.favourite', defaultMessage: 'Favorite' },
+  favourite: { id: 'status.favourite', defaultMessage: 'Froth' },
   removeFavourite: {
     id: 'status.remove_favourite',
-    defaultMessage: 'Remove from favorites',
+    defaultMessage: 'Remove froth',
   },
   open: { id: 'status.open', defaultMessage: 'Expand this status' },
 });

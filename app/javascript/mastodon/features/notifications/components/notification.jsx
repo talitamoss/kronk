@@ -32,7 +32,7 @@ import { RelationshipsSeveranceEvent } from './relationships_severance_event';
 import Report from './report';
 
 const messages = defineMessages({
-  favourite: { id: 'notification.favourite', defaultMessage: '{name} favorited your post' },
+  favourite: { id: 'notification.favourite', defaultMessage: '{name} frothed your post' },
   follow: { id: 'notification.follow', defaultMessage: '{name} followed you' },
   ownPoll: { id: 'notification.own_poll', defaultMessage: 'Your poll has ended' },
   poll: { id: 'notification.poll', defaultMessage: 'A poll you voted in has ended' },
@@ -188,7 +188,7 @@ class Notification extends ImmutablePureComponent {
             <Icon id='star' icon={HeartIcon} className='star-icon' />
 
             <span title={notification.get('created_at')}>
-              <FormattedMessage id='notification.favourite' defaultMessage='{name} favorited your post' values={{ name: link }} />
+              <FormattedMessage id='notification.favourite' defaultMessage='{name} frothed your post' values={{ name: link }} />
             </span>
           </div>
 

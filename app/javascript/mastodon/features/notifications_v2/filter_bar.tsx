@@ -3,12 +3,12 @@ import { useCallback } from 'react';
 
 import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
 
+import HeartIcon from '@/material-icons/400-24px/favorite.svg?react';
 import HomeIcon from '@/material-icons/400-24px/home-fill.svg?react';
 import InsertChartIcon from '@/material-icons/400-24px/insert_chart.svg?react';
 import PersonAddIcon from '@/material-icons/400-24px/person_add.svg?react';
 import RepeatIcon from '@/material-icons/400-24px/repeat.svg?react';
 import ReplyAllIcon from '@/material-icons/400-24px/reply_all.svg?react';
-import HeartIcon from '@/material-icons/400-24px/favorite.svg?react';
 import { setNotificationsFilter } from 'mastodon/actions/notification_groups';
 import { Icon } from 'mastodon/components/icon';
 import {
@@ -21,7 +21,7 @@ const tooltips = defineMessages({
   mentions: { id: 'notifications.filter.mentions', defaultMessage: 'Mentions' },
   favourites: {
     id: 'notifications.filter.favourites',
-    defaultMessage: 'Favorites',
+    defaultMessage: 'Froths',
   },
   boosts: { id: 'notifications.filter.boosts', defaultMessage: 'Boosts' },
   polls: { id: 'notifications.filter.polls', defaultMessage: 'Poll results' },

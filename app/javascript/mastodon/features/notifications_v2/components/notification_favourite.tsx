@@ -14,7 +14,7 @@ const labelRenderer: LabelRenderer = (displayedName, total, seeMoreHref) => {
     return (
       <FormattedMessage
         id='notification.favourite'
-        defaultMessage='{name} favorited your post'
+        defaultMessage='{name} frothed your post'
         values={{ name: displayedName }}
       />
     );
@@ -22,7 +22,7 @@ const labelRenderer: LabelRenderer = (displayedName, total, seeMoreHref) => {
   return (
     <FormattedMessage
       id='notification.favourite.name_and_others_with_link'
-      defaultMessage='{name} and <a>{count, plural, one {# other} other {# others}}</a> favorited your post'
+      defaultMessage='{name} and <a>{count, plural, one {# other} other {# others}}</a> frothed your post'
       values={{
         name: displayedName,
         count: total - 1,
@@ -42,7 +42,7 @@ const privateLabelRenderer: LabelRenderer = (
     return (
       <FormattedMessage
         id='notification.favourite_pm'
-        defaultMessage='{name} favorited your private mention'
+        defaultMessage='{name} frothed your private mention'
         values={{ name: displayedName }}
       />
     );
@@ -50,7 +50,7 @@ const privateLabelRenderer: LabelRenderer = (
   return (
     <FormattedMessage
       id='notification.favourite_pm.name_and_others_with_link'
-      defaultMessage='{name} and <a>{count, plural, one {# other} other {# others}}</a> favorited your private mention'
+      defaultMessage='{name} and <a>{count, plural, one {# other} other {# others}}</a> frothed your private mention'
       values={{
         name: displayedName,
         count: total - 1,

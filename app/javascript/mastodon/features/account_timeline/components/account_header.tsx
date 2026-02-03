@@ -117,7 +117,7 @@ const messages = defineMessages({
     id: 'navigation_bar.follow_requests',
     defaultMessage: 'Follow requests',
   },
-  favourites: { id: 'navigation_bar.favourites', defaultMessage: 'Favorites' },
+  favourites: { id: 'navigation_bar.favourites', defaultMessage: 'Froths' },
   lists: { id: 'navigation_bar.lists', defaultMessage: 'Lists' },
   followed_tags: {
     id: 'navigation_bar.followed_tags',
