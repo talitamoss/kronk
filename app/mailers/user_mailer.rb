@@ -146,7 +146,7 @@ class UserMailer < Devise::Mailer
     @has_statuses = @resource.account.statuses.exists?
 
     I18n.with_locale(locale) do
-      mail subject: default_i18n_subject
+      mail subject: I18n.t('user_mailer.welcome.subject', name: @resource.account.username)
     end
   end
 

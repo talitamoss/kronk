@@ -20,13 +20,13 @@ en:
       unconfirmed: You have to confirm your email address before continuing.
     mailer:
       confirmation_instructions:
-        action: Verify email address
-        action_with_app: Confirm and return to %{app}
-        explanation: You have created an account on %{host} with this email address. You are one click away from activating it. If this wasn't you, please ignore this email.
-        explanation_when_pending: You applied for an invite to %{host} with this email address. Once you confirm your e-mail address, we will review your application. You can login to change your details or delete your account, but you cannot access most of the functions until your account is approved. If your application is rejected, your data will be removed, so no further action will be required from you. If this wasn't you, please ignore this email.
-        extra_html: Please also check out <a href="%{terms_path}">the rules of the server</a> and <a href="%{policy_path}">our terms of service</a>.
-        subject: 'Mastodon: Confirmation instructions for %{instance}'
-        title: Verify email address
+        action: Confirm Email
+        action_with_app: Return to Kronk
+        explanation: "You've created an account on Kronk. Welcome to the threshold. Click below to confirm your email and activate your account. Wasn't you? Ignore this and nothing happens."
+        explanation_when_pending: "You've applied to join Kronk. Welcome to the threshold.<br><br>Click below to confirm your email. Once confirmed, we'll review your application—this is a small community, we want to take care of it.<br><br>You can log in to update your details or withdraw your application anytime. If we can't approve your request, your data will be deleted automatically—no action needed from you.<br><br>Wasn't you? Ignore this and nothing happens."
+        extra_html: ""
+        subject: "Kronk: Confirm your email"
+        title: Welcome to the Threshold
       email_changed:
         explanation: 'The email address for your account is being changed to:'
         extra: If you did not change your email, it is likely that someone has gained access to your account. Please change your password immediately or contact the server admin if you're locked out of your account.
